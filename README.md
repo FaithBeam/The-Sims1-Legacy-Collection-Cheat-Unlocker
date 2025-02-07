@@ -16,7 +16,7 @@ This unlocks debug mode cheats for The Sims 1 Legacy Collection.
 5. Close Steamless
 6. Optionally rename Sims.exe to Sims.exe.bak
 7. Rename Sims.unpacked.exe to Sims.exe so when you run Sims from Steam, it chooses the correct Sims.exe
-8. Download the latest Sims1-Legacy-Collection-Debug-Cheat-Unlocker
+8. Download the latest [Sims1-Legacy-Collection-Debug-Cheat-Unlocker](https://github.com/FaithBeam/The-Sims1-Legacy-Collection-Cheat-Unlocker/releases)
 9. Unzip the archive
 10. Run Sims1-Legacy-Collection-Debug-Cheat-Unlocker.exe
 11. Select the unpacked Sims.exe which should be Sims.exe at this point
