@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Sims1_Legacy_Collection_Debug_Cheat_Unlocker.Core.ViewModels.Dialogs.CustomInformationDialog;assembly=Sims1-Legacy-Collection-Debug-Cheat-Unlocker.Core"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Sims1_Legacy_Collection_Debug_Cheat_Unlocker.Views.CustomInformationDialog"
+        x:DataType="vm:CustomInformationDialogVm"
+        Icon="/Assets/SimsICO.ico"
+        MinWidth="300"
+        MinHeight="100"
+        CanResize="False"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        Title="{Binding Title}">
+    <Design.DataContext>
+        <vm:CustomInformationDialogVm />
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="*,*" Margin="5">
+        <Grid ColumnDefinitions="Auto,Auto">
+            <Image Source="/Assets/icons8-exclamation-mark-96.png" Width="48" Height="48" />
+            <Label Grid.Column="1" VerticalAlignment="Center" Content="{Binding Message}" />    
+        </Grid>
+        <Button Grid.Row="1" HorizontalAlignment="Right" IsDefault="True" HorizontalContentAlignment="Center" Width="80" Content="Ok" Click="Button_OnClick" />
+    </Grid>
+</Window>

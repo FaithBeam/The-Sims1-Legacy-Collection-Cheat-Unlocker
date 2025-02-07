@@ -10,7 +10,7 @@
         CanResize="False"
         x:Class="Sims1_Legacy_Collection_Debug_Cheat_Unlocker.Views.MainWindow"
         x:DataType="mainWindow:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/SimsICO.ico"
         Title="Sims 1 Legacy Collection Debug Cheat Unlocker">
 
     <Design.DataContext>
