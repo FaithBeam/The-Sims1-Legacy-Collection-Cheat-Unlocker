@@ -22,6 +22,13 @@ This unlocks debug mode cheats for The Sims 1 Legacy Collection.
 11. Select the unpacked Sims.exe which should be Sims.exe at this point
 12. Click Patch
 
+### MacOs How to Patch
+
+Before step 10 run this command in terminal:
+```bash
+sudo xattr -r -d com.apple.quarantine ~/Downloads/Sims1-LC-Debug-Cheat-Unlocker.1.0.0+macOS.x64
+```
+
 ### Notes
 
 If the Patch button is grayed out, it means the program could not find the proper data to modify. Make sure you ran 
