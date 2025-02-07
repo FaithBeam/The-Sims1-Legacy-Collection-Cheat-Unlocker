@@ -35,7 +35,7 @@ Steamless beforehand.
 
 ## Why do I need to run Steamless?
 
-A portion of the Sims.exe provided by Steam is encrypted/packed which makes patching difficult/impossible. Steamless decrypts this 
+A portion of the Sims.exe provided by Steam is encrypted/packed which makes patching difficult or impossible. Steamless decrypts this 
 data and allows for mod authors/hackers to tinker with the executable.
 
 In the future I'll see if I can unpack the Sims.exe myself without Steamless.

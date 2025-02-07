@@ -1,0 +1,76 @@
+name: .NET
+
+env:
+  PACK_ID: Sims1-LC-Debug-Cheat-Unlocker
+  PACK_VER: 1.0.0
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r linux-x64
+      - name: Publish
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ env.PACK_VER }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=linux-x64
+      - name: Upload a Build Artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACK_ID }}.${{ env.PACK_VER }}+linux.x64
+          path: artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r win-x64
+      - name: Publish
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ env.PACK_VER }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=win-x64
+      - name: Upload a Build Artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACK_ID }}.${{ env.PACK_VER }}+win.x64
+          path: artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.exe
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Restore dependencies
+        run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r osx-x64
+      - name: Publish
+        run: dotnet msbuild Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -t:BundleApp -p:RuntimeIdentifier=osx-x64 -p:UseAppHost=true -p:Configuration=Release -p:TargetFramework=net9.0 -p:VersionPrefix=${{ env.PACK_VER }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true
+      - name: Move App Bundle to Artifacts
+        run: mkdir artifacts && mv Sims1-Legacy-Collection-Debug-Cheat-Unlocker/bin/Release/net9.0/osx-x64/publish/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.app artifacts/
+      - name: Set Executable
+        run: chmod -R +x artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.app/Contents/MacOS/
+      - name: Tar to Preserve Permissions
+        run: tar -cvf Sims1-Legacy-Collection-Debug-Cheat-Unlocker.${{ env.PACK_VER }}+macOS.x64.tar artifacts/
+      - name: Upload a Build Artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACK_ID }}.${{ env.PACK_VER }}+macOS.x64
+          path: ${{ env.PACK_ID }}.${{ env.PACK_VER }}+macOS.x64.tar
