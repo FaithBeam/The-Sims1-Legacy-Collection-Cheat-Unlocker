@@ -61,11 +61,9 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r osx-x64
       - name: Publish
-        run: dotnet msbuild Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -t:BundleApp -p:RuntimeIdentifier=osx-x64 -p:UseAppHost=true -p:Configuration=Release -p:TargetFramework=net9.0 -p:VersionPrefix=${{ env.PACK_VER }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true
-      - name: Move App Bundle to Artifacts
-        run: mkdir artifacts && mv Sims1-Legacy-Collection-Debug-Cheat-Unlocker/bin/Release/net9.0/osx-x64/publish/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.app artifacts/
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -p:RuntimeIdentifier=osx-x64 -o artifacts -p:Configuration=Release -p:TargetFramework=net9.0 -p:VersionPrefix=${{ env.PACK_VER }} -p:SelfContained=true -p:PublishTrimmed=true
       - name: Set Executable
-        run: chmod -R +x artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.app/Contents/MacOS/
+        run: chmod -R +x artifacts/
       - name: Tar to Preserve Permissions
         run: tar -cvf Sims1-Legacy-Collection-Debug-Cheat-Unlocker.${{ env.PACK_VER }}+macOS.x64.tar artifacts/
       - name: Upload a Build Artifact
