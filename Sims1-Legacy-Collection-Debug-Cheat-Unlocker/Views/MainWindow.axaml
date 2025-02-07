@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mainWindow="clr-namespace:Sims1_Legacy_Collection_Debug_Cheat_Unlocker.Core.ViewModels.MainWindow;assembly=Sims1-Legacy-Collection-Debug-Cheat-Unlocker.Core"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        SizeToContent="WidthAndHeight"
+        MaxWidth="500"
+        MinWidth="500"
+        CanResize="False"
+        x:Class="Sims1_Legacy_Collection_Debug_Cheat_Unlocker.Views.MainWindow"
+        x:DataType="mainWindow:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Sims 1 Legacy Collection Debug Cheat Unlocker">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <mainWindow:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto,Auto">
+        <Grid ColumnDefinitions="*,Auto">
+            <TextBox x:Name="SimsPathTxtBox" Watermark="Path to Sims.exe" Text="{Binding PathToSims}" />
+            <Button Grid.Column="1" Command="{Binding BrowseCmd}" Content="Browse" />
+        </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="Auto,Auto" HorizontalAlignment="Right">
+            <Button Content="Patch" Command="{Binding PatchCmd}" CommandParameter="{Binding PathToSims}" />
+            <Button Grid.Column="1" Content="Uninstall" Command="{Binding UnPatchCmd}" CommandParameter="{Binding PathToSims}" />
+        </Grid>
+    </Grid>
+</Window>
