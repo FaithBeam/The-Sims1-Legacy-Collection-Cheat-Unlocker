@@ -46,3 +46,15 @@ A portion of the Sims.exe provided by Steam is encrypted/packed which makes patc
 data and allows for mod authors/hackers to tinker with the executable.
 
 In the future I'll see if I can unpack the Sims.exe myself without Steamless.
+
+## Build
+
+You need .NET 9 SDK to build.
+
+```bash
+git clone https://github.com/FaithBeam/The-Sims1-Legacy-Collection-Cheat-Unlocker
+cd The-Sims1-Legacy-Collection-Cheat-Unlocker
+dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ env.PACK_VER }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=win-x64
+````
+
+The 
