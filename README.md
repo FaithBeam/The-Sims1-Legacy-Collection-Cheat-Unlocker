@@ -2,6 +2,8 @@
 
 This unlocks debug mode cheats for The Sims 1 Legacy Collection.
 
+![image](https://github.com/user-attachments/assets/3b5d128a-fa9b-4bd4-9de1-eca7cd3ac2c6)
+
 ## Requirements
 
 * Steam version of Sims 1 Legacy Collection
