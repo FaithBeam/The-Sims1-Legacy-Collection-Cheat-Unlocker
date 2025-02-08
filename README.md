@@ -1,6 +1,6 @@
 # The-Sims1-Legacy-Collection-Cheat-Unlocker
 
-This unlocks debug mode cheats for The Sims 1 Legacy Collection.
+This unlocks debug mode cheats for The Sims 1 Legacy Collection. Click here for a list of cheats available: https://github.com/FaithBeam/The-Sims1-Legacy-Collection-Cheat-Unlocker/wiki
 
 ![image](https://github.com/user-attachments/assets/3b5d128a-fa9b-4bd4-9de1-eca7cd3ac2c6)
 
