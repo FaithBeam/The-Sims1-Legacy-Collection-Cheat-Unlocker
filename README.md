@@ -9,6 +9,8 @@ This unlocks debug mode cheats for The Sims 1 Legacy Collection.
 
 ## How to Patch
 
+Video instructions: https://youtu.be/4ueyrQ3eLJo
+
 1. Download [Steamless](https://github.com/atom0s/Steamless)
 2. Extract .zip and run Steamless.exe
 3. Select Sims.exe to unpack
