@@ -30,12 +30,12 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r linux-x64
       - name: Publish
-        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer } -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=linux-x64
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=linux-x64
       - name: Upload a Build Artifact
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }+linux.x64
+          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }}+linux.x64
           path: artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker
 
   windows:
@@ -56,12 +56,12 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r win-x64
       - name: Publish
-        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer } -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=win-x64
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -c Release -o artifacts -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer }} -p:PublishSingleFile=true -p:SelfContained=true -p:DebugType=embedded -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true -p:RuntimeIdentifier=win-x64
       - name: Upload a Build Artifact
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }+win.x64
+          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }}+win.x64
           path: artifacts/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.exe
 
   macos:
@@ -82,14 +82,14 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -r osx-x64
       - name: Publish
-        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -p:RuntimeIdentifier=osx-x64 -o artifacts -p:Configuration=Release -p:TargetFramework=net9.0 -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer } -p:SelfContained=true -p:PublishTrimmed=true
+        run: dotnet publish Sims1-Legacy-Collection-Debug-Cheat-Unlocker/Sims1-Legacy-Collection-Debug-Cheat-Unlocker.csproj -p:RuntimeIdentifier=osx-x64 -o artifacts -p:Configuration=Release -p:TargetFramework=net9.0 -p:VersionPrefix=${{ steps.gitversion.outputs.SemVer }} -p:SelfContained=true -p:PublishTrimmed=true
       - name: Set Executable
         run: chmod -R +x artifacts/
       - name: Tar to Preserve Permissions
-        run: tar -cvf ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }+macOS.x64.tar -C artifacts/ .
+        run: tar -cvf ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }}+macOS.x64.tar -C artifacts/ .
       - name: Upload a Build Artifact
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }+macOS.x64
-          path: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }+macOS.x64.tar
+          name: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }}+macOS.x64
+          path: ${{ env.PACK_ID }}.${{ steps.gitversion.outputs.SemVer }}+macOS.x64.tar
