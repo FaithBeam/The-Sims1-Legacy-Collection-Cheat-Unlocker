@@ -26,7 +26,15 @@ Video instructions: https://youtu.be/4ueyrQ3eLJo
 11. Select the unpacked Sims.exe which should be Sims.exe at this point
 12. Click Patch
 
-### MacOs How to Patch
+### Linux How to Patch Notes
+
+Run Steamless with Bottles or Codeweavers Crossover.
+
+Video instructions: https://www.youtube.com/watch?v=KTQTk3mUCWA
+
+### MacOs How to Patch Notes
+
+Run Steamless with Kegworks Winery, Codeweavers Crossover, or Whiskey
 
 Before step 10 run this command in terminal:
 ```bash
