@@ -28,7 +28,10 @@ Video instructions: https://youtu.be/4ueyrQ3eLJo
 
 ### Linux How to Patch Notes
 
-Run Steamless with Bottles or Codeweavers Crossover.
+* Install Bottles or whatever to run Windows applications.
+* Create a bottle to run Steamless
+* Configure the bottle to show dotfiles
+* Run Steamless within the created bottle
 
 Video instructions: https://www.youtube.com/watch?v=KTQTk3mUCWA
 
