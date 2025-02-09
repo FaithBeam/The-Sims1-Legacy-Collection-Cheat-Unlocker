@@ -2,7 +2,6 @@ name: .NET
 
 env:
   PACK_ID: Sims1-LC-Debug-Cheat-Unlocker
-  PACK_VER: 1.0.0
 
 on:
   push:
@@ -15,7 +14,10 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.0
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0
         with:
@@ -41,7 +43,10 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4.2.0
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0
         with:
@@ -67,7 +72,10 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4.2.0
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0
         with:
