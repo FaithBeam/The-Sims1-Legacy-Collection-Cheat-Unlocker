@@ -39,9 +39,9 @@ Video instructions: https://www.youtube.com/watch?v=KTQTk3mUCWA
 
 Run Steamless with Kegworks Winery, Codeweavers Crossover, or Whiskey
 
-Before step 10 run this command in terminal:
+Before step 10 run this command in terminal. Change the path to match new versions:
 ```bash
-sudo xattr -r -d com.apple.quarantine ~/Downloads/Sims1-LC-Debug-Cheat-Unlocker.1.0.0+macOS.x64
+sudo xattr -r -d com.apple.quarantine ~/Downloads/Sims1-LC-Debug-Cheat-Unlocker.1.0.2+macOS.x64
 ```
 
 ### Notes
