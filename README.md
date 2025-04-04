@@ -7,7 +7,7 @@ This unlocks debug mode cheats for The Sims 1 Legacy Collection. Click here for 
 ## Requirements
 
 * Steam version of Sims 1 Legacy Collection
-  * EA app customers can try this program but start from step 8 in How to Patch
+* This does **not** work for the EA version
 
 ## How to Patch
 
