@@ -13,7 +13,7 @@ This unlocks debug mode cheats for The Sims 1 Legacy Collection. Click here for 
 
 ## How to Patch
 
-Video instructions: https://youtu.be/4ueyrQ3eLJo
+Video instructions: [https://youtu.be/4ueyrQ3eLJo](https://youtu.be/pI0ISpXjp2A)
 
 1. Download [Steamless](https://github.com/atom0s/Steamless)
 2. Extract .zip and run Steamless.exe
